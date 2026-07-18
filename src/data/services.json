@@ -1,0 +1,20 @@
+[
+    {
+        "id": "seo",
+        "name": "SEO",
+        "description": "Optimització per a motors de cerca per millorar la visibilitat online",
+        "price": 300
+    },
+    {
+        "id": "ads",
+        "name": "Ads",
+        "description": "Gestió de campanyes de publicitat digital en plataformes com Google i xarxes socials",
+        "price": 400
+    },
+    {
+        "id": "web",
+        "name": "Web",
+        "description": "Programació d'una web responsive completa",
+        "price": 500
+    }
+]
