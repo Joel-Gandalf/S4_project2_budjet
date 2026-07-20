@@ -16,6 +16,10 @@
     "noEmit": true,
     "jsx": "react-jsx",
 
+    /* Habilitar la importación de archivos JSON */
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+
     /* Linting */
     "noUnusedLocals": true,
     "noUnusedParameters": true,
