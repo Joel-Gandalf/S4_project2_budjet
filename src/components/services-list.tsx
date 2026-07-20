@@ -16,6 +16,5 @@ const [selectedIds, toggleService] = useSelectedServices();
                 <ServiceCard service={service} isSelected={selectedIds.includes(service.id)} onToggle={toggleService} key={service.id}></ServiceCard>
             ) )}
         </fieldset>
-        
     )
 }
