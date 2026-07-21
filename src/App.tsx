@@ -1,5 +1,6 @@
 import { ServicesList } from "./components/services-list";
 import { useSelectedServices } from './hooks/useSelectedServices';
+import { TotalPriceDisplay } from "./components/total-price-display";
 
 export const App = () => {
 
@@ -7,7 +8,10 @@ export const App = () => {
 
   return (
     <>
-      <ServicesList selectedIds={selectedIds} toggleService={toggleService} />
+      <section>
+        <ServicesList selectedIds={selectedIds} toggleService={toggleService} />
+        <TotalPriceDisplay selectedIds={selectedIds}/>
+      </section>
     </>
   )
 }
