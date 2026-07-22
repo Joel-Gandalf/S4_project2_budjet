@@ -10,7 +10,7 @@ export const ServiceCard = ({ service: { id, name, description, price }, isSelec
 
     return (
         // <article className="flex flex-col gap-1 border rounded-lg border-amber-700 p-4 lg:flex-row lg:justify-between lg:items-center">
-        <article className={`grid grid-cols-1 gap-2 border rounded-lg p-4 shadow-xl lg:grid-cols-3 lg:items-center lg:p-7 ${isSelected ? 'bg-amber-50 border-amber-300 shadow-amber-700/30' : 'border-stone-300'}`}>
+        <article className={`grid grid-cols-1 gap-2 border rounded-lg p-4 shadow-xl lg:grid-cols-3 lg:items-center lg:p-7 ${isSelected ? 'bg-amber-50 border-amber-300 shadow-amber-700/30' : 'bg-amber-50/30 border-stone-300'}`}>
             <div className="lg:max-w-80">
                 <h2 className="text-lg font-bold lg:text-xl">{name}</h2>
                 <p className="text-sm text-stone-700 lg:text-base">{description}</p>
