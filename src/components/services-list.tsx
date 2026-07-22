@@ -17,7 +17,7 @@ export const ServicesList = ({selectedIds, toggleService}: ServicesListProps) =>
 // const [selectedIds, toggleService] = useSelectedServices();
 
     return (
-        <fieldset>
+        <fieldset className='flex flex-col gap-5'>
             <legend className='sr-only'>Selecciona els serveis que t'interessin</legend>
             {services.map(service => (
                 <ServiceCard service={service} isSelected={selectedIds.includes(service.id)} onToggle={toggleService} key={service.id} />

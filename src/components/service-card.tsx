@@ -9,12 +9,15 @@ export interface ServiceCardProps {
 export const ServiceCard = ({ service: { id, name, description, price }, isSelected, onToggle }: ServiceCardProps) => {
 
     return (
-        <article>
-            <h2>{name}</h2>
-            <p>{description}</p>
-            <p>{price} €</p>
-            <label><input 
-                type="checkbox" 
+        // <article className="flex flex-col gap-1 border rounded-lg border-amber-700 p-4 lg:flex-row lg:justify-between lg:items-center">
+        <article className={`grid grid-cols-1 gap-2 border rounded-lg p-4 shadow-xl lg:grid-cols-3 lg:items-center lg:p-7 ${isSelected ? 'bg-amber-50 border-amber-300 shadow-amber-700/30' : 'border-stone-300'}`}>
+            <div className="lg:max-w-80">
+                <h2 className="text-lg font-bold">{name}</h2>
+                <p className="text-stone-700">{description}</p>
+            </div>
+            <p className="justify-self-end mt-2 text-xl font-extrabold lg:mt-0 lg:justify-self-center lg:text-2xl">{price} €</p>
+            <label className="flex items-center gap-1 lg:justify-self-end"><input
+                type="checkbox"
                 name="inputCheckedService"
                 onChange={() => {
                     onToggle(id);
@@ -22,7 +25,8 @@ export const ServiceCard = ({ service: { id, name, description, price }, isSelec
                 id={id}
                 checked={isSelected}
                 aria-label={`Afegir servei ${name}`}
-            />Afegir</label>
+                className=" accent-amber-600"
+            /> Afegir</label>
         </article>
     )
 }
