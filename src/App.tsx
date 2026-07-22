@@ -8,7 +8,7 @@ export const App = () => {
 
   return (
     <>
-      <section className="px-8 md:px-20 lg:px-30">
+      <section className="flex flex-col gap-8 px-8 md:px-20 lg:px-30">
         <ServicesList selectedIds={selectedIds} toggleService={toggleService} />
         <TotalPriceDisplay selectedIds={selectedIds}/>
       </section>
