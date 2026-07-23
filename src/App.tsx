@@ -4,7 +4,7 @@ import { TotalPriceDisplay } from "./components/total-price-display";
 
 export const App = () => {
 
-  const [selectedIds, toggleService] = useSelectedServices();
+  const {selectedIds, toggleService} = useSelectedServices();
 
   return (
     <>

@@ -4,7 +4,8 @@ import type { Service } from "../types/service";
 
 //  indexed access type, sirve para : extraer el tipo de una propiedad concreta de una interfaz ya existente Service["id"].
 
-export const useSelectedServices = (): [Service["id"][], (id: Service["id"]) => void] => {
+// export const useSelectedServices = (): [Service["id"][], (id: Service["id"]) => void] => {
+export const useSelectedServices = (): {selectedIds: Service["id"][], toggleService: (id: Service["id"]) => void} => {
     const initialSelectedIds: Service["id"][] = []; 
     const [selectedIds, setSelectedIds] = useState(initialSelectedIds);
 
@@ -19,7 +20,7 @@ export const useSelectedServices = (): [Service["id"][], (id: Service["id"]) => 
         setSelectedIds([...selectedIds, id]);
     }
 
-    return [selectedIds, toggleService];
+    return {selectedIds, toggleService};
 }
 
 // ():[Service["id"][], void] => {
