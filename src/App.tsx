@@ -1,5 +1,5 @@
 import { ServicesList } from "./components/services-list";
-import { useSelectedServices } from './hooks/useSelectedServices';
+import { useSelectedServices } from './hooks/use-selected-services';
 import { TotalPriceDisplay } from "./components/total-price-display";
 
 export const App = () => {

@@ -2,7 +2,7 @@ import services from '../data/services.json';
 import { ServiceCard } from './service-card';
 import type { Service } from '../types/service';
 
-// import { useSelectedServices } from '../hooks/useSelectedServices';
+// import { useSelectedServices } from '../hooks/use-selected-services';
 
 interface ServicesListProps {
     selectedIds: Service["id"][]; 
