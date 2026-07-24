@@ -56,16 +56,3 @@ describe('calculateTotal', () => {
         expect(result).toBe(300);
     });
 });
-
-// describe('Scenario: Calcular el total cuando no hay servicios seleccionados', () => {
-//     // GIVEN
-//     const services: Service[] = [];
-
-//     // WHEN
-//     const result = calculateTotal(services);
-
-//     // THEN
-//     it('Then debería retornar un total de 0', () => {
-//         expect(result).toBe(0);
-//     });
-// });
