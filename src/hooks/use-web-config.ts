@@ -5,31 +5,48 @@ import webConfigDefaults from "../data/web-config-defaults.json";
 type WebConfigKey = keyof WebConfig;
 
 export const useWebConfig = (): {
-    numberPages: number, 
-    numberLanguages: number, 
-    incrementOrDecrement: (key: WebConfigKey, direction: "increment" | "decrement")=> void
+    numberPages: number,
+    numberLanguages: number,
+    incrementOrDecrement: (key: WebConfigKey, direction: "increment" | "decrement") => void
 } => {
-    
+
     const defaultValue: number = webConfigDefaults.defaultValue;
-    const [ numberPages, setNumberPages ] = useState(defaultValue);
-    const [ numberLanguages, setNumberLanguages ] = useState(defaultValue);
+    const [numberPages, setNumberPages] = useState(defaultValue);
+    const [numberLanguages, setNumberLanguages] = useState(defaultValue);
 
     const incrementOrDecrement = (key: WebConfigKey, direction: "increment" | "decrement") => {
 
+        // let setState;
+        // if (key === "pages") {
+        //     setState = setNumberPages;
+        // } else {
+        //     setState = setNumberLanguages;
+        // }
+
+        const setState = key === "pages" ? setNumberPages : setNumberLanguages;
+
         if (direction === "increment") {
-            if (key === "pages") {
-                setNumberPages(numberPagesPrev => numberPagesPrev + 1 );
-                return;
-            }
-            setNumberLanguages(numberLanguagesPrev => numberLanguagesPrev + 1 );
+            setState(numberPrev => numberPrev + 1);
             return;
         }
-        if (key === "pages") {
-            setNumberPages(numberPagesPrev => numberPagesPrev > 1 ? numberPagesPrev -1 : numberPagesPrev);
-            return;
-        }
-        setNumberLanguages(numberLanguagesPrev => numberLanguagesPrev > 1 ? numberLanguagesPrev -1 : numberLanguagesPrev);
+
+        setState(numberPrev => numberPrev > 1 ? numberPrev - 1 : numberPrev);
         return;
+
+        // if (direction === "increment") {
+        //     if (key === "pages") {
+        //         setNumberPages(numberPagesPrev => numberPagesPrev + 1);
+        //         return;
+        //     }
+        //     setNumberLanguages(numberLanguagesPrev => numberLanguagesPrev + 1);
+        //     return;
+        // }
+        // if (key === "pages") {
+        //     setNumberPages(numberPagesPrev => numberPagesPrev > 1 ? numberPagesPrev - 1 : numberPagesPrev);
+        //     return;
+        // }
+        // setNumberLanguages(numberLanguagesPrev => numberLanguagesPrev > 1 ? numberLanguagesPrev - 1 : numberLanguagesPrev);
+        // return;
     }
 
     return { numberPages, numberLanguages, incrementOrDecrement }
