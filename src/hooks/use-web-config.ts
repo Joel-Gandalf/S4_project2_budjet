@@ -4,11 +4,13 @@ import webConfigDefaults from "../data/web-config-defaults.json";
 
 type WebConfigKey = keyof WebConfig;
 
-export const useWebConfig = (): {
-    numberPages: number,
-    numberLanguages: number,
-    incrementOrDecrement: (key: WebConfigKey, direction: "increment" | "decrement") => void
-} => {
+export interface UseWebConfigReturn {
+    numberPages: number;
+    numberLanguages: number;
+    incrementOrDecrement: (key: WebConfigKey, direction: "increment" | "decrement") => void;
+}
+
+export const useWebConfig = (): UseWebConfigReturn => {
 
     const defaultValue: number = webConfigDefaults.defaultValue;
     const [numberPages, setNumberPages] = useState(defaultValue);

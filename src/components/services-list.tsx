@@ -1,15 +1,19 @@
 import services from '../data/services.json';
 import { ServiceCard } from './service-card';
 import type { Service } from '../types/service';
+import type { UseWebConfigReturn } from '../hooks/use-web-config';
 
 // import { useSelectedServices } from '../hooks/use-selected-services';
 
 interface ServicesListProps {
     selectedIds: Service["id"][]; 
     toggleService: (id: Service["id"]) => void;
+    numberPages: UseWebConfigReturn["numberPages"]; 
+    numberLanguages: UseWebConfigReturn["numberLanguages"]; 
+    incrementOrDecrement: UseWebConfigReturn["incrementOrDecrement"];
 }
 
-export const ServicesList = ({selectedIds, toggleService}: ServicesListProps) => {
+export const ServicesList = ({selectedIds, toggleService, numberPages, numberLanguages, incrementOrDecrement}: ServicesListProps) => {
 
 // const selectedServices = useSelectedServices();    
 // const selectedIds = selectedServices[0];
