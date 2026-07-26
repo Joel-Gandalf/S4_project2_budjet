@@ -9,6 +9,6 @@ interface CalculatePriceWebParams {
 }
 
 export const calculatePriceWeb = ({pages, languages, basePrice, pricePerAdditionalUnit}: CalculatePriceWebParams): number => {
-    
-    return (pages + languages)*pricePerAdditionalUnit + basePrice;
+    const minimumIncluded = 1;
+    return ((pages - minimumIncluded) + (languages - minimumIncluded))*pricePerAdditionalUnit + basePrice;
 }
