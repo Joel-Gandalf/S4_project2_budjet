@@ -1,7 +1,6 @@
 import { Stepper } from "./stepper";
 import { calculatePriceWeb } from "../logic/calculate-price-web";
 import type { UseWebConfigReturn } from "../hooks/use-web-config";
-import services from "../data/services.json";
 import webConfigDefaults from "../data/web-config-defaults.json";
 
 interface WebConfiguratorProps {
@@ -11,12 +10,6 @@ interface WebConfiguratorProps {
 }
 
 export const WebConfigurator = ({numberPages, numberLanguages, incrementOrDecrement}: WebConfiguratorProps) => {
-
-    const webService = services.find(service => service.id === "web");
-    if (!webService) {
-        throw new Error("Web service not found in services.json");
-    }
-    const basePrice = webService.price;
 
     const pricePerAdditionalUnit = webConfigDefaults.pricePerAdditionalUnit;
     
@@ -41,7 +34,7 @@ export const WebConfigurator = ({numberPages, numberLanguages, incrementOrDecrem
                     />
             </div>
             <div role="status">
-                {calculatePriceWeb({pages: numberPages, languages: numberLanguages, basePrice: basePrice, pricePerAdditionalUnit: pricePerAdditionalUnit})} €
+                {calculatePriceWeb({pages: numberPages, languages: numberLanguages, pricePerAdditionalUnit: pricePerAdditionalUnit})} €
             </div>
         </div>
     );

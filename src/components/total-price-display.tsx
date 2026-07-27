@@ -1,14 +1,27 @@
 import { calculateTotal } from "../logic/calculate-total";
 import type { Service } from "../types/service";
 import services from "../data/services.json";
+import type { UseWebConfigReturn } from "../hooks/use-web-config";
+import { calculatePriceWeb } from "../logic/calculate-price-web"; 
+import webConfigDefaults from "../data/web-config-defaults.json";
 
 interface TotalPriceDisplayProps {
     selectedIds: Service["id"][];
+    numberPages: UseWebConfigReturn["numberPages"];
+    numberLanguages: UseWebConfigReturn["numberLanguages"];
 }
 
-export const TotalPriceDisplay = ({ selectedIds }: TotalPriceDisplayProps) => {
+export const TotalPriceDisplay = ({ selectedIds, numberPages, numberLanguages }: TotalPriceDisplayProps) => {
     const selectedServices = services.filter(service => selectedIds.includes(service.id));
-    const finalPrice = calculateTotal(selectedServices);
+
+    const webServiceIsSelected = selectedIds.includes("web");
+
+    const pricePerAdditionalUnit = webConfigDefaults.pricePerAdditionalUnit;
+
+    const finalPrice = 
+        calculateTotal(selectedServices) + 
+        (webServiceIsSelected ? calculatePriceWeb({pages: numberPages, languages: numberLanguages, pricePerAdditionalUnit: pricePerAdditionalUnit}) : 0);
+    
     return (
         <div 
             role="status"
