@@ -25,11 +25,12 @@ export const ServicesList = ({ selectedIds, toggleService, numberPages, numberLa
         <fieldset className='flex flex-col gap-5'>
             <legend className='sr-only'>Selecciona els serveis que t'interessin</legend>
             {services.map(service => (
-                <article key={service.id}>
-                    <ServiceCard service={service} isSelected={selectedIds.includes(service.id)} onToggle={toggleService} />
-                    {(service.id === "web" && selectedIds.includes("web")) && <WebConfigurator numberPages={numberPages} numberLanguages={numberLanguages} incrementOrDecrement={incrementOrDecrement} />}
-                </article>
+                <ServiceCard service={service} isSelected={selectedIds.includes(service.id)} onToggle={toggleService} key={service.id}> 
+                {(service.id === "web" && selectedIds.includes("web")) && (
+                    <WebConfigurator numberPages={numberPages} numberLanguages={numberLanguages} incrementOrDecrement={incrementOrDecrement} />
+                    )}
+                </ServiceCard>
             ))}
         </fieldset>
-    )
+    );
 }
