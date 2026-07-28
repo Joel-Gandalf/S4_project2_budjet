@@ -4,9 +4,10 @@ export interface ServiceCardProps {
     service: Service;
     isSelected: boolean;
     onToggle: (id: Service["id"]) => void;
+    children?: React.ReactNode;
 }
 
-export const ServiceCard = ({ service: { id, name, description, price }, isSelected, onToggle }: ServiceCardProps) => {
+export const ServiceCard = ({ service: { id, name, description, price }, isSelected, onToggle, children }: ServiceCardProps) => {
 
     return (
         // <article className="flex flex-col gap-1 border rounded-lg border-amber-700 p-4 lg:flex-row lg:justify-between lg:items-center">
@@ -16,7 +17,7 @@ export const ServiceCard = ({ service: { id, name, description, price }, isSelec
                 <p className="text-sm text-stone-700 lg:text-base">{description}</p>
             </div>
             <p className="justify-self-end mt-2 text-xl font-extrabold lg:mt-0 lg:justify-self-center lg:text-2xl">{price} €</p>
-            <label className="flex items-center gap-1 lg:justify-self-end text-sm lg:text-base"><input
+            <label className="flex items-center gap-1 cursor-pointer lg:justify-self-end text-sm lg:text-base"><input
                 type="checkbox"
                 name="inputCheckedService"
                 onChange={() => {
@@ -25,8 +26,11 @@ export const ServiceCard = ({ service: { id, name, description, price }, isSelec
                 id={id}
                 checked={isSelected}
                 aria-label={`Afegir servei ${name}`}
-                className=" accent-amber-600"
+                className=" accent-amber-600 cursor-pointer"
             /> Afegir</label>
+            <div className="lg:col-start-3">
+                {children}
+            </div>
         </article>
     )
 }
