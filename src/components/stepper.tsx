@@ -10,9 +10,13 @@ export interface StepperProps {
 export const Stepper = ({currentValue, onIncrease, onDecrease, ariaDescription, minimumNumber = 1}: StepperProps ) => {
     return(
         <div className="flex items-center gap-3">
-            <button onClick={onDecrease} aria-label={`Resta un${ariaDescription}`} disabled={currentValue <= minimumNumber} className="flex items-center justify-center h-5 w-5 pb-1 border border-amber-300 rounded-full font-bold leading-none">-</button>
+            <button onClick={onDecrease} aria-label={`Resta un${ariaDescription}`} disabled={currentValue <= minimumNumber} 
+                className="flex items-center justify-center h-5 w-5 pb-1 border border-amber-300 rounded-full font-bold leading-none cursor-pointer"
+            >-</button>
             <div aria-live="polite" className="flex items-center justify-center h-8 w-12 border border-amber-300 rounded-lg font-semibold">{currentValue}</div>
-            <button onClick={onIncrease} aria-label={`Afegeix un${ariaDescription}`} className="flex items-center justify-center h-5 w-5 pb-1 border border-amber-300 rounded-full font-bold leading-none">+</button>
+            <button onClick={onIncrease} aria-label={`Afegeix un${ariaDescription}`} 
+                className="flex items-center justify-center h-5 w-5 pb-1 border border-amber-300 rounded-full font-bold leading-none cursor-pointer"
+            >+</button>
         </div>
     );
 }

@@ -14,7 +14,7 @@ export const InfoTooltip = ({ title, description, id }: InfoTooltipProps) => {
         <div>
             <button
                 type="button"
-                className="h-6 w-6 flex items-center "
+                className="h-6 w-6 flex items-center cursor-pointer"
                 aria-expanded={isActive}
                 aria-controls={id}
                 onClick={
