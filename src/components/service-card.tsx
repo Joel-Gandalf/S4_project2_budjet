@@ -28,7 +28,9 @@ export const ServiceCard = ({ service: { id, name, description, price }, isSelec
                 aria-label={`Afegir servei ${name}`}
                 className=" accent-amber-600"
             /> Afegir</label>
-            {children}
+            <div className="lg:col-start-3">
+                {children}
+            </div>
         </article>
     )
 }

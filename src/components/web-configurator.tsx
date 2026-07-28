@@ -16,9 +16,9 @@ export const WebConfigurator = ({numberPages, numberLanguages, incrementOrDecrem
     const pricePerAdditionalUnit = webConfigDefaults.pricePerAdditionalUnit;
     
     return (
-        <div>
-            <div>
-                <p>Nombre de pàgines</p>
+        <div className="flex flex-col items-end gap-1">
+            <div className="flex items-center gap-1">
+                <p className="text-sm text-stone-700 lg:text-base">Nombre de pàgines</p>
                 <InfoTooltip 
                     title={infoTooltipData.pages.title} 
                     description={infoTooltipData.pages.description} 
@@ -30,8 +30,8 @@ export const WebConfigurator = ({numberPages, numberLanguages, incrementOrDecrem
                     ariaDescription="a pàgina" 
                 />
             </div>
-            <div>
-                <p>Nombre de llenguatges</p>
+            <div className="flex items-center gap-1">
+                <p className="text-sm text-stone-700 lg:text-base">Nombre de llenguatges</p>
                 <InfoTooltip 
                     title={infoTooltipData.languages.title} 
                     description={infoTooltipData.languages.description} 
@@ -43,8 +43,8 @@ export const WebConfigurator = ({numberPages, numberLanguages, incrementOrDecrem
                     ariaDescription=" llenguatge"  
                     />
             </div>
-            <div role="status">
-                {calculatePriceWeb({pages: numberPages, languages: numberLanguages, pricePerAdditionalUnit: pricePerAdditionalUnit})} €
+            <div role="status" className="font-semibold mt-1.5">
+                Extra {calculatePriceWeb({pages: numberPages, languages: numberLanguages, pricePerAdditionalUnit: pricePerAdditionalUnit})} €
             </div>
         </div>
     );
