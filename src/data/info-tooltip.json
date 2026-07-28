@@ -1,0 +1,12 @@
+{
+    "pages": {
+        "title": "Número de pàgines",
+        "description": "Afegeix les pàgines que tindrà el teu projecte. El cost de cada pàgina és de 30€",
+        "id": "pages-info"
+    },
+    "languages": {
+        "title": "Número de llenguatges",
+        "description": "Afegeix els llenguatges que tindrà el teu projecte. El cost de cada llenguatge és de 30€",
+        "id": "languages-info"
+    }
+}

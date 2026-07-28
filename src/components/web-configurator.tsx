@@ -2,6 +2,8 @@ import { Stepper } from "./stepper";
 import { calculatePriceWeb } from "../logic/calculate-price-web";
 import type { UseWebConfigReturn } from "../hooks/use-web-config";
 import webConfigDefaults from "../data/web-config-defaults.json";
+import { InfoTooltip } from "./info-tooltip";
+import  infoTooltipData  from "../data/info-tooltip.json";
 
 interface WebConfiguratorProps {
     numberPages: UseWebConfigReturn["numberPages"];
@@ -17,6 +19,10 @@ export const WebConfigurator = ({numberPages, numberLanguages, incrementOrDecrem
         <div>
             <div>
                 <p>Nombre de pàgines</p>
+                <InfoTooltip 
+                    title={infoTooltipData.pages.title} 
+                    description={infoTooltipData.pages.description} 
+                    id={infoTooltipData.pages.id}/>
                 <Stepper 
                     currentValue={numberPages} 
                     onIncrease={() => incrementOrDecrement("pages", "increment")} 
@@ -26,6 +32,10 @@ export const WebConfigurator = ({numberPages, numberLanguages, incrementOrDecrem
             </div>
             <div>
                 <p>Nombre de llenguatges</p>
+                <InfoTooltip 
+                    title={infoTooltipData.languages.title} 
+                    description={infoTooltipData.languages.description} 
+                    id={infoTooltipData.languages.id} />
                 <Stepper 
                     currentValue={numberLanguages} 
                     onIncrease={() => incrementOrDecrement("languages", "increment")} 
